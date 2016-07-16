@@ -21,7 +21,7 @@ public class InventoryManager {
 
         System.out.println("------------------ITERATING---------------------");
         Iterator iterator = myQueue.iterator();
-        while (iterator.hasNext()){
+        while (iterator.hasNext()) {
             System.out.println(iterator.next());
         }
         System.out.println("-------------------------------------------------\n");
