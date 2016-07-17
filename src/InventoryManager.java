@@ -2,16 +2,11 @@ import ManagingLogic.QueueImplementation;
 import ManagingLogic.StackImplementation;
 import ManagingLogic.FifoLifoImplementation;
 
-import java.util.Queue;
-
 public class InventoryManager {
     public static void main(String[] args) {
 
-        Queue javaDoc = null;
-
         FifoLifoImplementation myQueue = new QueueImplementation();
         FifoLifoImplementation myStack = new StackImplementation();
-        boolean state = false;
 
         String[] proverbs = new String[]{"God helps those who help themselves.",
                 "You can't always get what you want.",

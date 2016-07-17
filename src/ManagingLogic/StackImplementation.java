@@ -5,5 +5,7 @@ package ManagingLogic;
  */
 public class StackImplementation extends FifoLifoImplementation {
 
+    public StackImplementation() {
+    }
 }
 

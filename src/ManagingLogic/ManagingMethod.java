@@ -1,9 +1,5 @@
 package ManagingLogic;
 
-/* cloned 17.07.2016 */
-
-import java.util.Collection;
-
 abstract class ManagingMethod implements Iterable {
 
     /**
@@ -14,7 +10,7 @@ abstract class ManagingMethod implements Iterable {
     public abstract void add(Object o);
 
     /**
-     * Instrts the incoming array into collection, beginning from the first existing element
+     * Inserts the incoming array into collection, beginning from the first existing element
      * @param c - array[]
      */
     public abstract void addValues(Object[] c);
@@ -27,7 +23,7 @@ abstract class ManagingMethod implements Iterable {
     public abstract Object get(int i);
 
     /**
-     * Returns retrns the last value of collection that depends on subclass type (last entered for LIFO
+     * Returns returns the last value of collection that depends on subclass type (last entered for LIFO
      * or first entered for FIFO subclass)
      * @return Object
      */
@@ -46,7 +42,7 @@ abstract class ManagingMethod implements Iterable {
     public abstract void removeLast();
 
     /**
-     * returns the number of elements, addet to collection (quantity of elements included)
+     * returns the number of elements, added to collection (quantity of elements included)
      * @return quantity of elements in collection
      */
     public abstract int size();

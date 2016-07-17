@@ -10,17 +10,17 @@ import java.util.NoSuchElementException;
  */
 public class FifoLifoImplementation extends ManagingMethod {
 
-    protected static final int DEFAULT_QUEUE_SIZE = 5;
+    private static final int DEFAULT_QUEUE_SIZE = 5;
     protected Object[] vault;
     protected int size;
     protected int fillIn;
-    protected long version;
+    private long version;
 
     public FifoLifoImplementation() {
         this(DEFAULT_QUEUE_SIZE);
     }
 
-    public FifoLifoImplementation(int queueSize) {
+    private FifoLifoImplementation(int queueSize) {
 
         this.size = queueSize;
         vault = new Object[queueSize];
@@ -44,8 +44,8 @@ public class FifoLifoImplementation extends ManagingMethod {
             size = size + c.length;
             vault = Arrays.copyOf(vault, size);
         }
-        for (int i = 0; i < c.length; i++){
-            vault[fillIn++] = c[i];
+        for (Object element : c){
+            vault[fillIn++] = element;
         }
     }
 
