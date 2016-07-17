@@ -141,7 +141,7 @@ public class FifoLifoImplementation extends ManagingMethod {
     }
 
     private boolean isEmpty() {
-        return this.fillIn > 0 && this.fillIn - 1 < this.size ? false : true;
+        return !(this.fillIn > 0 && this.fillIn - 1 < this.size);
 
     }
 }
