@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 
 /**
  * Created by skydock on 17.07.2016.
- * modified
+ *
  */
 public class FifoLifoImplementation extends ManagingMethod {
 
