@@ -3,6 +3,8 @@ package ManagingLogic;
 import java.util.Collection;
 import java.util.Objects;
 
+/* cloned 17.07.2016 */
+
 abstract class ManagingMethod implements Iterable {
 
     /**
