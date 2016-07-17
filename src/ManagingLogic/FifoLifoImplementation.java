@@ -83,7 +83,7 @@ public class FifoLifoImplementation extends ManagingMethod {
 
 
     @Override
-    public boolean add(Object o) {
+    public void add(Object o) {
 
         if (fillIn <= this.size - 1) {
             vault[fillIn++] = o;
@@ -91,7 +91,6 @@ public class FifoLifoImplementation extends ManagingMethod {
         } else {
             throw new IllegalStateException("IllegalStateException");
         }
-        return true;
     }
 
     @Override

@@ -11,7 +11,7 @@ abstract class ManagingMethod implements Iterable {
      * violating capacity restrictions, returning true upon success and throwing an IllegalStateException
      * if no space is currently available.
      */
-    public abstract boolean add(Object o);
+    public abstract void add(Object o);
 
     /**
      * Instrts the incoming array into collection, beginning from the first existing element
