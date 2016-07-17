@@ -1,9 +1,8 @@
 package ManagingLogic;
 
-import java.util.Collection;
-import java.util.Objects;
-
 /* cloned 17.07.2016 */
+
+import java.util.Collection;
 
 abstract class ManagingMethod implements Iterable {
 
@@ -15,27 +14,24 @@ abstract class ManagingMethod implements Iterable {
     public abstract boolean add(Object o);
 
     /**
+     * Instrts the incoming array into collection, beginning from the first existing element
+     * @param c - array[]
+     */
+    public abstract void addValues(Object[] c);
+
+    /**
      * Inserts the specified element into this queue if it is possible to do so immediately without
      * violating capacity restrictions. When using a capacity-restricted queue, this method is generally
      * preferable to add, which can fail to insert an element only by throwing an exception.
      */
-    public abstract boolean offer(Object o);
+    public abstract Object get(int i);
 
     /**
-     * Retrieves, but does not remove, the head of this queue, or returns null if this queue is empty.
+     * Returns retrns the last value of collection that depends on subclass type (last entered for LIFO
+     * or first entered for FIFO subclass)
+     * @return Object
      */
-    public abstract Object peek();
-
-    /**
-     * Retrieves, but does not remove, the head of this queue. This method differs from peek only in
-     * that it throws an exception if this queue is empty.
-     */
-    public abstract Object element();
-
-    /**
-     * Retrieves and removes the head of this queue, or returns null if this queue is empty.
-     */
-    public abstract Object poll();
+    public abstract Object getLast();
 
     /**
      * Retrieves and removes the head of this queue. This method differs from poll only in that it
@@ -43,8 +39,27 @@ abstract class ManagingMethod implements Iterable {
      */
     public abstract Object remove();
 
+    /**
+     * Retrieves and removes the head of this queue. This method differs from poll only in that it
+     * throws an exception if this queue is empty.
+     */
+    public abstract void removeLast();
+
+    /**
+     * returns the number of elements, addet to collection (quantity of elements included)
+     * @return quantity of elements in collection
+     */
     public abstract int size();
 
+    /**
+     * returns the size of collection
+     * @return size of collection
+     */
     public abstract int capacity();
+
+    /**
+     * delete all values of collection, but doesn't resize it.
+     */
+    public abstract void clear();
 }
 

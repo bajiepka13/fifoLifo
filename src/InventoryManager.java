@@ -1,6 +1,7 @@
 import ManagingLogic.QueueImplementation;
+import ManagingLogic.StackImplementation;
+import ManagingLogic.FifoLifoImplementation;
 
-import java.util.Iterator;
 import java.util.Queue;
 
 public class InventoryManager {
@@ -8,43 +9,62 @@ public class InventoryManager {
 
         Queue javaDoc = null;
 
-        QueueImplementation myQueue = new QueueImplementation();
+        FifoLifoImplementation myQueue = new QueueImplementation();
+        FifoLifoImplementation myStack = new StackImplementation();
         boolean state = false;
 
-        System.out.println("------------------ADD---------------------------");
-        System.out.println("[added] " + myQueue.add("Birds of a feather flock together"));
-        System.out.println("[added] " + myQueue.add("Keep your friends close and your enemies closer"));
-        System.out.println("[added] " + myQueue.add("A picture is worth a thousand words"));
-        System.out.println("[added] " + myQueue.add("There's no such thing as a free lunch"));
-        System.out.println("[added] " + myQueue.add("There's no place like home"));
-        System.out.println("------------------SIZE: " + myQueue.size() + "(" + myQueue.capacity() + ")--------------------\n");
+        String[] proverbs = new String[]{"God helps those who help themselves.",
+                "You can't always get what you want.",
+                "Cleanliness is next to godliness.",
+                "A watched pot never boils."};
 
-        System.out.println("------------------ITERATING---------------------");
-        Iterator iterator = myQueue.iterator();
-        while (iterator.hasNext()) {
-            System.out.println(iterator.next());
-        }
-        System.out.println("-------------------------------------------------\n");
+        String[] proverbs2 = new String[]{
+                "Beggars can't be choosers.",
+                "Actions speak louder than words.",
+                "If it ain't broke, don't fix it.",
+                "Practice makes perfect.",
+                "Too many cooks spoil the broth."
+        };
 
-        System.out.println("------------------PEEK--------------------------");
-        System.out.println(myQueue.peek());
-        System.out.println("------------------SIZE: " + myQueue.size() + "(" + myQueue.capacity() + ")--------------------\n");
+        myQueue.addValues(proverbs);
+        myStack.addValues(proverbs2);
 
-        System.out.println("------------------POLL--------------------------");
-        System.out.println(myQueue.poll());
-        System.out.println("------------------SIZE: " + myQueue.size() + "(" + myQueue.capacity() + ")--------------------\n");
+        System.out.println("Queue\n" + myQueue.toString());
+        System.out.println("Stack\n" + myStack.toString());
 
-        System.out.println("------------------ELEMENT-----------------------");
-        System.out.println(myQueue.element());
-        System.out.println("------------------SIZE: " + myQueue.size() + "(" + myQueue.capacity() + ")--------------------\n");
+        System.out.println("last of Stack: " + myStack.getLast());
+        System.out.println("last of Queue: " + myQueue.getLast());
 
-        System.out.println("------------------OFFER-------------------------");
-        System.out.println("[added] " + myQueue.offer("Never look a gift horse in the mouth"));
-        System.out.println("------------------SIZE: " + myQueue.size() + "(" + myQueue.capacity() + ")--------------------\n");
+        myStack.removeLast();
+        myQueue.removeLast();
 
-        System.out.println("------------------OFFER-------------------------");
-        System.out.println("[added] " + myQueue.offer("You can't make an omelet without breaking a few eggs"));
-        System.out.println("------------------SIZE: " + myQueue.size() + "(" + myQueue.capacity() + ")--------------------\n");
+        System.out.println("Queue\n" + myQueue.toString());
+        System.out.println("Stack\n" + myStack.toString());
+
+        System.out.println("last of Stack: " + myStack.getLast());
+        System.out.println("last of Queue: " + myQueue.getLast());
+
+        System.out.println("\nClear");
+        myQueue.clear();
+        myStack.clear();
+
+        System.out.println("Queue\n" + myQueue.toString());
+        System.out.println("Stack\n" + myStack.toString());
+        System.out.println("Queue capacity: " + myQueue.capacity());
+        System.out.println("Stack capacity: " + myStack.capacity());
+        System.out.println("Queue size: " + myQueue.size());
+        System.out.println("Stack size: " + myStack.size() + "\n");
+
+        myQueue.addValues(proverbs);
+        myStack.addValues(proverbs2);
+        myQueue.addValues(proverbs2);
+        myStack.addValues(proverbs);
+
+        System.out.println("Queue\n" + myQueue.toString());
+        System.out.println("Stack\n" + myStack.toString());
+
+        System.out.println("last of Stack: " + myStack.getLast());
+        System.out.println("last of Queue: " + myQueue.getLast());
     }
 }
 
