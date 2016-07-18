@@ -3,8 +3,8 @@ import ManagingLogic.*;
 public class InventoryManager {
     public static void main(String[] args) {
 
-        ManagingMethod myQueue = new QueueImplementation();
-        ManagingMethod myStack = new StackImplementation();
+        ManagingClass myQueue = new QueueImplementation();
+        ManagingClass myStack = new StackImplementation();
 
         String[] proverbs = new String[]{"God helps those who help themselves.",
                 "You can't always get what you want.",

@@ -4,18 +4,18 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public abstract class ManagingMethod implements Iterable {
+public abstract class ManagingClass implements Iterable {
     private static final int DEFAULT_QUEUE_SIZE = 5;
     Object[] vault;
     int size;
     int fillIn;
     private long version;
 
-    public ManagingMethod() {
+    public ManagingClass() {
         this(DEFAULT_QUEUE_SIZE);
     }
 
-    private ManagingMethod(int queueSize) {
+    private ManagingClass(int queueSize) {
 
         this.size = queueSize;
         vault = new Object[queueSize];
@@ -65,15 +65,6 @@ public abstract class ManagingMethod implements Iterable {
         return o;
     }
 
-    /**
-     * Returns returns the last value of collection that depends on subclass type (last entered for LIFO
-     * or first entered for FIFO subclass)
-     *
-     * @return Object
-     */
-    public Object getLast() {
-        return vault[fillIn - 1];
-    }
 
     /**
      * Retrieves and removes the head of this queue. This method differs from poll only in that it
@@ -88,15 +79,6 @@ public abstract class ManagingMethod implements Iterable {
             throw new NoSuchElementException("NoSuchElementException");
         }
         return r;
-    }
-
-    /**
-     * Retrieves and removes the head of this queue. This method differs from poll only in that it
-     * throws an exception if this queue is empty.
-     */
-    public void removeLast() {
-        vault[--fillIn] = null;
-        size--;
     }
 
     /**
@@ -129,12 +111,28 @@ public abstract class ManagingMethod implements Iterable {
         fillIn = 0;
     }
 
+    /**
+     * Returns returns the last value of collection that depends on subclass type (last entered for LIFO
+     * or first entered for FIFO subclass)
+     *
+     * @return Object
+     */
+    public abstract Object getLast();
+
+
+    /**
+     * Retrieves and removes the head of this queue. This method differs from poll only in that it
+     * throws an exception if this queue is empty.
+     */
+    public abstract void removeLast();
+
+
     @Override
     public Iterator iterator() {
         return new Iterator() {
 
             int iPosition;
-            long version = ManagingMethod.this.version;
+            long version = ManagingClass.this.version;
 
             @Override
             public boolean hasNext() {

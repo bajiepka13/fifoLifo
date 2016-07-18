@@ -1,6 +1,6 @@
 package ManagingLogic;
 
-public class QueueImplementation extends ManagingMethod {
+public class QueueImplementation extends ManagingClass {
 
     static String className = "Queue";
 
