@@ -2,8 +2,6 @@ package ManagingLogic;
 
 public class QueueImplementation extends ManagingClass {
 
-    static String className = "Queue";
-
     public QueueImplementation() {
         super();
     }
