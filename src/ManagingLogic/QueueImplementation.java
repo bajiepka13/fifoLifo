@@ -1,6 +1,6 @@
 package ManagingLogic;
 
-public class QueueImplementation extends FifoLifoImplementation {
+public class QueueImplementation extends ManagingMethod {
 
     static String className = "Queue";
 
