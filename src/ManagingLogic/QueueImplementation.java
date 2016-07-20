@@ -18,5 +18,6 @@ public class QueueImplementation extends ManagingClass {
             vault[i] = (size > i + 1) ? vault[i + 1] : null;
         }
         fillIn--;
+        size--;
     }
 }
