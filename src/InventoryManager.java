@@ -40,7 +40,7 @@ public class InventoryManager {
         myStack.clear();
 
         System.out.println("\nQueue\n" + myQueue.toString());
-        System.out.println("\nStack\n" + myStack.toString());
+        System.out.println("\nStack\n" + myStack.toString() + "\n");
         System.out.println("Queue capacity: " + myQueue.capacity());
         System.out.println("Stack capacity: " + myStack.capacity());
         System.out.println("Queue size: " + myQueue.size());
