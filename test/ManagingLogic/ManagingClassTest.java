@@ -7,9 +7,8 @@ import static org.junit.Assert.assertTrue;
 public class ManagingClassTest {
     private int vaultInitSize;
     private static ManagingClass manager;
-    private static String[] sixStringArray;
+    private static String[] oneStringArray;
     private static String[] fiveStringsArray;
-
 
     @BeforeClass
     public static void setUpClass() throws Exception {
@@ -23,14 +22,7 @@ public class ManagingClassTest {
             public void removeLast() {
             }
         };
-        sixStringArray = new String[]{
-                "The First String",
-                "The Second String",
-                "The Third String",
-                "The Fourth String",
-                "The Fifth String",
-                "The Sixth String"
-        };
+
         fiveStringsArray = new String[]{
                 "The First String",
                 "The Second String",
@@ -38,12 +30,15 @@ public class ManagingClassTest {
                 "The Fourth String",
                 "The Fifth String",
         };
+        oneStringArray = new String[]{
+                "The Additional String",
+        };
     }
 
     @Before
     public void setUp() throws Exception {
         vaultInitSize = manager.vault.length;
-        manager.addValues(sixStringArray);
+        manager.addValues(fiveStringsArray);
     }
 
     @After
@@ -51,17 +46,20 @@ public class ManagingClassTest {
         manager.clear();
     }
 
-
     @Test
-    public void vaultSizeChangedAfterAddValues() throws Exception {
-        assertTrue(manager.vault.length == sixStringArray.length + vaultInitSize);
+    public void vaultSizeChangesAfterAddValues() throws Exception {
+        boolean vaultSizeNotChanged = (manager.vault.length == fiveStringsArray.length);
+        manager.addValues(oneStringArray);
+        boolean vaultSizeChanged = (manager.vault.length == oneStringArray.length + vaultInitSize);
+        assertTrue(vaultSizeChanged & vaultSizeNotChanged);
     }
-
+    
     @Test
     public void compareAfterAddValues() {
+
         boolean areStringsEqual = false;
-        for (int i = 0; i < sixStringArray.length - 1; i++) {
-            if (manager.vault[i].equals(sixStringArray[i])) {
+        for (int i = 0; i < fiveStringsArray.length - 1; i++) {
+            if (manager.vault[i].equals(fiveStringsArray[i])) {
                 areStringsEqual = true;
             } else {
                 areStringsEqual = true;
@@ -88,7 +86,8 @@ public class ManagingClassTest {
 
     @AfterClass
     public static void tearDownClass() throws Exception {
-        sixStringArray = null;
+        oneStringArray = null;
+        fiveStringsArray = null;
 
     }
 
