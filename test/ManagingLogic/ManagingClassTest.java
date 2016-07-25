@@ -5,10 +5,22 @@ import org.junit.*;
 import static org.junit.Assert.assertTrue;
 
 public class ManagingClassTest {
-    private int vaultInitSize;
+    private int vaultInitLength;
     private static ManagingClass common;
-    private static String[] oneStringArray;
-    private static String[] fiveStringsArray;
+    private String[] oneStringArray = new String[]{
+            "The Additional String"
+    };
+    private String[] fiveStringsArray = new String[]{
+            "The First String",
+            "The Second String",
+            "The Third String",
+            "The Fourth String",
+            "The Fifth String"
+    };
+
+    private final int INIT_DATA_LENGTH = fiveStringsArray.length;
+    private final int ADD_DATA_LENGTH = oneStringArray.length;
+
 
     @BeforeClass
     public static void setUpClass() throws Exception {
@@ -22,22 +34,11 @@ public class ManagingClassTest {
             public void removeLast() {
             }
         };
-
-        fiveStringsArray = new String[]{
-                "The First String",
-                "The Second String",
-                "The Third String",
-                "The Fourth String",
-                "The Fifth String",
-        };
-        oneStringArray = new String[]{
-                "The Additional String",
-        };
     }
 
     @Before
     public void setUp() throws Exception {
-        vaultInitSize = common.vault.length;
+        vaultInitLength = common.vault.length;
         common.addValues(fiveStringsArray);
     }
 
@@ -48,19 +49,25 @@ public class ManagingClassTest {
 
     @Test
     public void vaultSizeChangesAfterAddValues() throws Exception {
-        boolean vaultSizeNotChanged;
-        boolean vaultSizeChanged;
-        boolean isSizeEqualInputQuantity;
+        boolean isVaultSizeNotChanged;
+        boolean isVaultSizeChanged;
+        boolean isSizeEqualsInputQuantity;
+        int vaultLength;
+        int collectionSize;
 
-        vaultSizeNotChanged = (common.vault.length == fiveStringsArray.length);
-        isSizeEqualInputQuantity = (common.size() == fiveStringsArray.length);
+        collectionSize = common.size();
+        vaultLength = common.vault.length;
+        isVaultSizeNotChanged = (vaultInitLength == vaultLength) & (vaultLength == INIT_DATA_LENGTH);
+        isSizeEqualsInputQuantity = (collectionSize == INIT_DATA_LENGTH);
 
         common.addValues(oneStringArray);
-        vaultSizeChanged = (common.vault.length == oneStringArray.length + vaultInitSize);
-        isSizeEqualInputQuantity
-                = isSizeEqualInputQuantity & (common.size() == fiveStringsArray.length + oneStringArray.length);
 
-        assertTrue(vaultSizeChanged & vaultSizeNotChanged & isSizeEqualInputQuantity);
+        collectionSize = common.size();
+        vaultLength = common.vault.length;
+        isVaultSizeChanged = (vaultLength == ADD_DATA_LENGTH + vaultInitLength);
+        isSizeEqualsInputQuantity = isSizeEqualsInputQuantity & (collectionSize == INIT_DATA_LENGTH + ADD_DATA_LENGTH);
+
+        assertTrue(isVaultSizeChanged & isVaultSizeNotChanged & isSizeEqualsInputQuantity);
     }
 
     @Test
@@ -107,10 +114,8 @@ public class ManagingClassTest {
 
     @AfterClass
     public static void tearDownClass() throws Exception {
-        oneStringArray = null;
-        fiveStringsArray = null;
     }
-    
+
     @Ignore
     @Test
     public void add() throws Exception {
