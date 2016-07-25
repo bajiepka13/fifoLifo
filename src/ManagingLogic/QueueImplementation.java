@@ -7,12 +7,12 @@ public class QueueImplementation extends ManagingClass {
     }
 
     @Override
-    public Object getLast() {
+    public Object getFirst() {
         return super.get(0);
     }
 
     @Override
-    public void removeLast() {
+    public void removeFirst() {
 
         for (int i = 0; i < size; i++) {
             vault[i] = (size > i + 1) ? vault[i + 1] : null;

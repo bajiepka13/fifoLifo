@@ -6,12 +6,12 @@ public class StackImplementation extends ManagingClass {
 
     }
     @Override
-    public Object getLast() {
+    public Object getFirst() {
         return vault[fillIn - 1];
     }
 
     @Override
-    public void removeLast() {
+    public void removeFirst() {
         vault[--fillIn] = null;
         size--;
     }

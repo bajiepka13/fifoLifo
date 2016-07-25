@@ -23,17 +23,17 @@ public class InventoryManager {
         System.out.println("Queue\n" + myQueue.toString());
         System.out.println("Stack\n" + myStack.toString());
 
-        System.out.println("last of Stack: " + myStack.getLast());
-        System.out.println("last of Queue: " + myQueue.getLast());
+        System.out.println("first of Queue: " + myQueue.getFirst());
+        System.out.println("first of Stack: " + myStack.getFirst());
 
-        myStack.removeLast();
-        myQueue.removeLast();
+        myQueue.removeFirst();
+        myStack.removeFirst();
 
-        System.out.println("\nRemove last of Queue:\n" + myQueue.toString());
-        System.out.println("Remove last of Stack\n" + myStack.toString());
+        System.out.println("\nRemove first of Queue:\n" + myQueue.toString());
+        System.out.println("Remove first of Stack\n" + myStack.toString());
 
-        System.out.println("last of Stack: " + myStack.getLast());
-        System.out.println("last of Queue: " + myQueue.getLast());
+        System.out.println("first of Queue: " + myQueue.getFirst());
+        System.out.println("first of Stack: " + myStack.getFirst());
 
         System.out.println("\nClearing");
         myQueue.clear();
@@ -46,16 +46,16 @@ public class InventoryManager {
         System.out.println("Queue size: " + myQueue.size());
         System.out.println("Stack size: " + myStack.size() + "\n");
 
+        myStack.addValues(proverbsForQueue);
         myQueue.addValues(proverbsForQueue);
         myStack.addValues(proverbsForStack);
         myQueue.addValues(proverbsForStack);
-        myStack.addValues(proverbsForQueue);
 
         System.out.println("Queue\n" + myQueue.toString());
         System.out.println("Stack\n" + myStack.toString());
 
-        System.out.println("last of Stack: " + myStack.getLast());
-        System.out.println("last of Queue: " + myQueue.getLast());
+        System.out.println("first of Queue: " + myQueue.getFirst());
+        System.out.println("first of Stack: " + myStack.getFirst());
     }
 }
 

@@ -112,19 +112,19 @@ public abstract class ManagingClass implements Iterable {
     }
 
     /**
-     * Returns returns the last value of collection that depends on subclass type (last entered for LIFO
+     * Returns the first value of collection that depends on subclass type (last entered for LIFO
      * or first entered for FIFO subclass)
      *
      * @return Object
      */
-    public abstract Object getLast();
+    public abstract Object getFirst();
 
 
     /**
-     * Retrieves and removes the head of this queue. This method differs from poll only in that it
-     * throws an exception if this queue is empty.
+     * Retrieves and removes the head of the queue or the tail of the stack. This method differs from poll only in that
+     * it throws an exception if this queue is empty.
      */
-    public abstract void removeLast();
+    public abstract void removeFirst();
 
 
     @Override
