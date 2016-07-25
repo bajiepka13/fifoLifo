@@ -73,11 +73,11 @@ public class ManagingClassTest {
     @Test
     public void contentVerificationAfterAddValues() {
         boolean areStringsEqual = false;
-        for (int i = 0; i < fiveStringsArray.length - 1; i++) {
+        for (int i = 0; i < INIT_DATA_LENGTH - 1; i++) {
             if (common.vault[i].equals(fiveStringsArray[i])) {
                 areStringsEqual = true;
             } else {
-                areStringsEqual = true;
+                areStringsEqual = false;
                 break;
             }
         }
