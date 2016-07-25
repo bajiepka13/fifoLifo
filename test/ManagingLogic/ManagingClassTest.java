@@ -1,21 +1,22 @@
 package ManagingLogic;
 
 import org.junit.*;
+
 import static org.junit.Assert.assertTrue;
 
 public class ManagingClassTest {
     private int vaultInitLength;
     private static ManagingClass common;
-    private String[] oneStringArray = new String[]{
-            "The Additional String"
-    };
-
     private String[] fiveStringsArray = new String[]{
             "The First String",
             "The Second String",
             "The Third String",
             "The Fourth String",
             "The Fifth String"
+    };
+
+    private String[] oneStringArray = new String[]{
+            "The Additional String"
     };
 
     private final int INIT_DATA_LENGTH = fiveStringsArray.length;
