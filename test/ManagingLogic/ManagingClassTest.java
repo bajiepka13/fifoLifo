@@ -5,9 +5,9 @@ import org.junit.*;
 import static org.junit.Assert.assertTrue;
 
 public class ManagingClassTest {
-    private int vaultInitLength;
     private static ManagingClass common;
-    private String[] fiveStringsArray = new String[]{
+    private int vaultInitLength;
+    String[] fiveStringsArray = new String[]{
             "The First String",
             "The Second String",
             "The Third String",
@@ -15,24 +15,24 @@ public class ManagingClassTest {
             "The Fifth String"
     };
 
-    private String[] oneStringArray = new String[]{
+    String[] oneStringArray = new String[]{
             "The Additional String"
     };
 
-    private final int INIT_DATA_LENGTH = fiveStringsArray.length;
-    private final int ADD_DATA_LENGTH = oneStringArray.length;
+    final int INIT_DATA_LENGTH = fiveStringsArray.length;
+    final int ADD_DATA_LENGTH = oneStringArray.length;
 
 
     @BeforeClass
     public static void setUpClass() throws Exception {
         common = new ManagingClass() {
             @Override
-            public Object getLast() {
+            public Object getFirst() {
                 return null;
             }
 
             @Override
-            public void removeLast() {
+            public void removeFirst() {
             }
         };
     }
@@ -113,26 +113,9 @@ public class ManagingClassTest {
         assertTrue(isVaultEmpty & isCapacityEqualsToSize & isCapacityNotChanged & isSizeReseted);
     }
 
-    @Ignore
-    @Test
-    public void add() throws Exception {
-
-    }
-
-    @Ignore
-    @Test
-    public void get() throws Exception {
-
-    }
-
-    @Ignore
-    @Test
-    public void remove() throws Exception {
-
-    }
-
     @AfterClass
     public static void tearDownClass() throws Exception {
+        common = null;
     }
 
 }
