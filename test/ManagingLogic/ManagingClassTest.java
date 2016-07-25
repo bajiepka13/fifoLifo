@@ -1,7 +1,6 @@
 package ManagingLogic;
 
 import org.junit.*;
-
 import static org.junit.Assert.assertTrue;
 
 public class ManagingClassTest {
@@ -10,6 +9,7 @@ public class ManagingClassTest {
     private String[] oneStringArray = new String[]{
             "The Additional String"
     };
+
     private String[] fiveStringsArray = new String[]{
             "The First String",
             "The Second String",
@@ -88,13 +88,13 @@ public class ManagingClassTest {
     public void sizeAndCapacityChangesAfterClear() throws Exception {
         final int EMPTY = 0;
         boolean isVaultEmpty = false;
-        boolean isCapacityEqualSize;
+        boolean isCapacityEqualsToSize;
         boolean isCapacityNotChanged;
         boolean isSizeReseted;
         int capacityBeforeClear;
 
         capacityBeforeClear = common.capacity();
-        isCapacityEqualSize = (common.capacity() == common.size());
+        isCapacityEqualsToSize = (common.capacity() == common.size());
 
         common.clear();
 
@@ -109,11 +109,7 @@ public class ManagingClassTest {
                 isVaultEmpty = true;
             }
         }
-        assertTrue(isVaultEmpty & isCapacityEqualSize & isCapacityNotChanged & isSizeReseted);
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
+        assertTrue(isVaultEmpty & isCapacityEqualsToSize & isCapacityNotChanged & isSizeReseted);
     }
 
     @Ignore
@@ -132,6 +128,10 @@ public class ManagingClassTest {
     @Test
     public void remove() throws Exception {
 
+    }
+
+    @AfterClass
+    public static void tearDownClass() throws Exception {
     }
 
 }
