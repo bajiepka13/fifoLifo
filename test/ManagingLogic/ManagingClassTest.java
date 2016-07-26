@@ -5,9 +5,7 @@ import org.junit.*;
 import static org.junit.Assert.assertTrue;
 
 public class ManagingClassTest {
-    private static ManagingClass common;
-    private int vaultInitLength;
-    String[] fiveStringsArray = new String[]{
+    final String[] INIT_DATA = new String[]{
             "The First String",
             "The Second String",
             "The Third String",
@@ -15,13 +13,15 @@ public class ManagingClassTest {
             "The Fifth String"
     };
 
-    String[] oneStringArray = new String[]{
+    final String[] ADD_DATA = new String[]{
             "The Additional String"
     };
 
-    final int INIT_DATA_LENGTH = fiveStringsArray.length;
-    final int ADD_DATA_LENGTH = oneStringArray.length;
+    final int INIT_DATA_LENGTH = INIT_DATA.length;
+    final int ADD_DATA_LENGTH = ADD_DATA.length;
 
+    private static ManagingClass common;
+    private int vaultInitSize;
 
     @BeforeClass
     public static void setUpClass() throws Exception {
@@ -39,8 +39,8 @@ public class ManagingClassTest {
 
     @Before
     public void setUp() throws Exception {
-        vaultInitLength = common.vault.length;
-        common.addValues(fiveStringsArray);
+        vaultInitSize = common.vault.length;
+        common.addValues(INIT_DATA);
     }
 
     @After
@@ -53,19 +53,19 @@ public class ManagingClassTest {
         boolean isVaultSizeNotChanged;
         boolean isVaultSizeChanged;
         boolean isSizeEqualsInputQuantity;
-        int vaultLength;
+        int vaultSize;
         int collectionSize;
 
         collectionSize = common.size();
-        vaultLength = common.vault.length;
-        isVaultSizeNotChanged = (vaultInitLength == vaultLength) & (vaultLength == INIT_DATA_LENGTH);
+        vaultSize = common.vault.length;
+        isVaultSizeNotChanged = (vaultInitSize == vaultSize) & (vaultSize == INIT_DATA_LENGTH);
         isSizeEqualsInputQuantity = (collectionSize == INIT_DATA_LENGTH);
 
-        common.addValues(oneStringArray);
+        common.addValues(ADD_DATA);
 
         collectionSize = common.size();
-        vaultLength = common.vault.length;
-        isVaultSizeChanged = (vaultLength == ADD_DATA_LENGTH + vaultInitLength);
+        vaultSize = common.vault.length;
+        isVaultSizeChanged = (vaultSize == ADD_DATA_LENGTH + vaultInitSize);
         isSizeEqualsInputQuantity = isSizeEqualsInputQuantity & (collectionSize == INIT_DATA_LENGTH + ADD_DATA_LENGTH);
 
         assertTrue(isVaultSizeChanged & isVaultSizeNotChanged & isSizeEqualsInputQuantity);
@@ -75,7 +75,7 @@ public class ManagingClassTest {
     public void contentVerificationAfterAddValues() {
         boolean areStringsEqual = false;
         for (int i = 0; i < INIT_DATA_LENGTH - 1; i++) {
-            if (common.vault[i].equals(fiveStringsArray[i])) {
+            if (common.vault[i].equals(INIT_DATA[i])) {
                 areStringsEqual = true;
             } else {
                 areStringsEqual = false;

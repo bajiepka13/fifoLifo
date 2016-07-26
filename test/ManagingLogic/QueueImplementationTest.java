@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class QueueImplementationTest {
     private static ManagingClassTest common = new ManagingClassTest();
     private static ManagingClass queue = new QueueImplementation();
-    private final String[] INIT_DATA = common.fiveStringsArray;
+    private final String[] INIT_DATA = common.INIT_DATA;
 
 
     @Before

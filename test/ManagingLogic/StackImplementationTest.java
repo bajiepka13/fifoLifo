@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class StackImplementationTest {
     private static ManagingClassTest common = new ManagingClassTest();
     private static ManagingClass stack = new StackImplementation();
-    private final String[] INIT_DATA = common.fiveStringsArray;
+    private final String[] INIT_DATA = common.INIT_DATA;
 
 
     @Before
@@ -24,12 +24,12 @@ public class StackImplementationTest {
     public void getFirst() throws Exception {
         final int LAST = INIT_DATA.length - 1;
         String firstStringInQueue;
-        String firstStringInArray;
+        String lastStringInArray;
 
         firstStringInQueue = stack.getFirst().toString();
-        firstStringInArray = INIT_DATA[LAST];
+        lastStringInArray = INIT_DATA[LAST];
 
-        assertEquals(firstStringInQueue, firstStringInArray);
+        assertEquals(firstStringInQueue, lastStringInArray);
     }
 
     @Test
