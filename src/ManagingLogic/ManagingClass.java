@@ -22,7 +22,7 @@ public abstract class ManagingClass implements Iterable {
     }
 
     /**
-     * Inserts the specified element into this queue if it is possible to do so immediately without
+     * Inserts the specified element into collection if it is possible to do so immediately without
      * violating capacity restrictions, returning true upon success and throwing an IllegalStateException
      * if no space is currently available.
      */
@@ -51,7 +51,7 @@ public abstract class ManagingClass implements Iterable {
     }
 
     /**
-     * Inserts the specified element into this queue if it is possible to do so immediately without
+     * Inserts the specified element into the collection if it is possible to do so immediately without
      * violating capacity restrictions. When using a capacity-restricted queue, this method is generally
      * preferable to add, which can fail to insert an element only by throwing an exception.
      */
@@ -67,7 +67,7 @@ public abstract class ManagingClass implements Iterable {
 
 
     /**
-     * Retrieves and removes the head of this queue. This method differs from poll only in that it
+     * Retrieves and removes the head of the collection. This method differs from poll only in that it
      * throws an exception if this queue is empty.
      */
     public Object remove() {
