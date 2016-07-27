@@ -62,6 +62,12 @@ public class StackImplementationTest {
 
     }
 
+    @Test(expected = Exception.class)
+    public void removeFirstOnEmptyCollection() throws Exception {
+        stack.clear();
+        stack.removeFirst();
+    }
+
     @AfterClass
     public static void tearDownClass() throws Exception {
         common = null;

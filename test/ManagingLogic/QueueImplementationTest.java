@@ -62,6 +62,12 @@ public class QueueImplementationTest {
 
     }
 
+    @Test(expected = Exception.class)
+    public void removeFirstOnEmptyCollection() throws Exception {
+        queue.clear();
+        queue.removeFirst();
+    }
+
     @AfterClass
     public static void tearDownClass() throws Exception {
         common = null;
