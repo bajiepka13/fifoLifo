@@ -1,10 +1,13 @@
 package ManagingLogic;
 
+import java.util.NoSuchElementException;
+
 public class StackImplementation extends ManagingClass {
 
     public StackImplementation() {
 
     }
+
     @Override
     public Object getFirst() {
         return vault[fillIn - 1];
@@ -12,8 +15,12 @@ public class StackImplementation extends ManagingClass {
 
     @Override
     public void removeFirst() {
-        vault[--fillIn] = null;
-        size--;
+        if (!isEmpty()) {
+            vault[--fillIn] = null;
+            size--;
+        } else {
+            throw new NoSuchElementException("There is no stack to work with");
+        }
+
     }
 }
-
