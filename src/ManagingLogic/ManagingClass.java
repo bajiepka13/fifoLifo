@@ -65,22 +65,6 @@ public abstract class ManagingClass implements Iterable {
         return o;
     }
 
-
-    /**
-     * Retrieves and removes the head of the collection. This method differs from poll only in that it
-     * throws an exception if this queue is empty.
-     */
-    public Object remove() {
-        Object r = null;
-        if (!isEmpty()) {
-            r = vault[fillIn--];
-            vault[fillIn + 1] = null;
-        } else {
-            throw new NoSuchElementException("NoSuchElementException");
-        }
-        return r;
-    }
-
     /**
      * returns the number of elements, added to collection (quantity of elements included)
      *
@@ -119,10 +103,9 @@ public abstract class ManagingClass implements Iterable {
      */
     public abstract Object getFirst();
 
-
     /**
-     * Retrieves and removes the head of the queue or the tail of the stack. This method differs from poll only in that
-     * it throws an exception if this queue is empty.
+     * Retrieves and removes the head of the queue or the tail of the stack. This method throws an exception
+     * if this collection is empty.
      */
     public abstract void removeFirst();
 
@@ -147,7 +130,7 @@ public abstract class ManagingClass implements Iterable {
     }
 
 
-    private boolean isEmpty() {
+    protected boolean isEmpty() {
         return !(this.fillIn > 0 && this.fillIn - 1 < this.size);
 
     }
