@@ -4,10 +4,6 @@ import java.util.NoSuchElementException;
 
 public class QueueImplementation extends ManagingClass {
 
-    public QueueImplementation() {
-        super();
-    }
-
     @Override
     public Object getFirst() {
         return super.get(0);

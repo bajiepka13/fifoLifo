@@ -4,10 +4,6 @@ import java.util.NoSuchElementException;
 
 public class StackImplementation extends ManagingClass {
 
-    public StackImplementation() {
-
-    }
-
     @Override
     public Object getFirst() {
         return vault[fillIn - 1];
