@@ -31,7 +31,7 @@ public abstract class ManagingClass implements Iterable {
             vault[fillIn++] = o;
             version++;
         } else {
-            throw new IllegalStateException("IllegalStateException");
+            throw new IllegalStateException("There is no space left in the collection");
         }
     }
 
