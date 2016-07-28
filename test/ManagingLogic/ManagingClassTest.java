@@ -2,6 +2,7 @@ package ManagingLogic;
 
 import org.junit.*;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class ManagingClassTest {
@@ -113,9 +114,28 @@ public class ManagingClassTest {
         assertTrue(isVaultEmpty & isCapacityEqualsToSize & isCapacityNotChanged & isSizeReseted);
     }
 
+    @Test
+    public void toStringIfEmpty() throws Exception {
+        final String EXPECTED_IF_EMPTY = "Collection is empty";
+        common.clear();
+        String actualAfterClear = common.toString();
+        assertEquals(actualAfterClear, EXPECTED_IF_EMPTY);
+    }
+
+    @Test
+    public void add() throws Exception {
+        common.clear();
+        common.add(ADD_DATA);
+        assertTrue(common.vault[ADD_DATA_LENGTH - 1].equals(ADD_DATA));
+    }
+
+    @Test(expected = Exception.class)
+    public void addIfNoSpace() throws Exception {
+        common.add(ADD_DATA);
+    }
+
     @AfterClass
     public static void tearDownClass() throws Exception {
         common = null;
     }
-
 }
