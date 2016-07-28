@@ -25,6 +25,8 @@ public abstract class ManagingClass implements Iterable {
      * Inserts the specified element into collection if it is possible to do so immediately without
      * violating capacity restrictions, returning true upon success and throwing an IllegalStateException
      * if no space is currently available.
+     *
+     * @param o - Object
      */
     public void add(Object o) {
         if (fillIn <= this.size - 1) {
@@ -36,7 +38,7 @@ public abstract class ManagingClass implements Iterable {
     }
 
     /**
-     * Inserts the incoming array into collection, beginning from the first existing element
+     * Inserts the incoming array into collection, beginning from the first existing element.
      *
      * @param c - array[]
      */
@@ -115,7 +117,6 @@ public abstract class ManagingClass implements Iterable {
         return new Iterator() {
 
             int iPosition;
-            long version = ManagingClass.this.version;
 
             @Override
             public boolean hasNext() {
@@ -150,7 +151,5 @@ public abstract class ManagingClass implements Iterable {
         }
         return s;
     }
-
-
 }
 
