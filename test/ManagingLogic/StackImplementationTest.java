@@ -20,7 +20,7 @@ public class StackImplementationTest {
         stack.clear();
     }
 
-    @Test
+    @Test(timeout = 1000)
     public void getFirst() throws Exception {
         final int LAST = INIT_DATA.length - 1;
         String firstStringInQueue;
@@ -32,7 +32,7 @@ public class StackImplementationTest {
         assertEquals(firstStringInQueue, lastStringInArray);
     }
 
-    @Test
+    @Test(timeout = 1000)
     public void removeFirst() throws Exception {
         final int EXCLUDE_LAST = 1;
         boolean isDataEqualBeforeRemoveFirst = false;
@@ -62,7 +62,7 @@ public class StackImplementationTest {
 
     }
 
-    @Test(expected = Exception.class)
+    @Test(expected = Exception.class, timeout = 1000)
     public void removeFirstOnEmptyCollection() throws Exception {
         stack.clear();
         stack.removeFirst();

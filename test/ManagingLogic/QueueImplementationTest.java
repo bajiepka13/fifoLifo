@@ -20,7 +20,7 @@ public class QueueImplementationTest {
         queue.clear();
     }
 
-    @Test
+    @Test(timeout = 1000)
     public void getFirst() throws Exception {
         final int FIRST = 0;
         String firstStringInQueue;
@@ -32,7 +32,7 @@ public class QueueImplementationTest {
         assertEquals(firstStringInQueue, firstStringInArray);
     }
 
-    @Test
+    @Test(timeout = 1000)
     public void removeFirst() throws Exception {
         final int EXCLUDE_FIRST = 1;
         boolean isDataEqualBeforeRemoveFirst = false;
@@ -62,7 +62,7 @@ public class QueueImplementationTest {
 
     }
 
-    @Test(expected = Exception.class)
+    @Test(expected = Exception.class, timeout = 1000)
     public void removeFirstOnEmptyCollection() throws Exception {
         queue.clear();
         queue.removeFirst();

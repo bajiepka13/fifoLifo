@@ -49,7 +49,7 @@ public class ManagingClassTest {
         common.clear();
     }
 
-    @Test
+    @Test(timeout = 1000)
     public void vaultSizeChangesAfterAddValues() throws Exception {
         boolean isVaultSizeNotChanged;
         boolean isVaultSizeChanged;
@@ -72,7 +72,7 @@ public class ManagingClassTest {
         assertTrue(isVaultSizeChanged & isVaultSizeNotChanged & isSizeEqualsInputQuantity);
     }
 
-    @Test
+    @Test(timeout = 1000)
     public void contentVerificationAfterAddValues() {
         boolean areStringsEqual = false;
         for (int i = 0; i < INIT_DATA_LENGTH - 1; i++) {
@@ -86,7 +86,7 @@ public class ManagingClassTest {
         assertTrue(areStringsEqual);
     }
 
-    @Test
+    @Test(timeout = 1000)
     public void sizeAndCapacityChangesAfterClear() throws Exception {
         final int EMPTY = 0;
         boolean isVaultEmpty = false;
@@ -114,7 +114,7 @@ public class ManagingClassTest {
         assertTrue(isVaultEmpty & isCapacityEqualsToSize & isCapacityNotChanged & isSizeReseted);
     }
 
-    @Test
+    @Test(timeout = 1000)
     public void toStringIfEmpty() throws Exception {
         final String EXPECTED_IF_EMPTY = "Collection is empty";
         common.clear();
@@ -122,14 +122,14 @@ public class ManagingClassTest {
         assertEquals(actualAfterClear, EXPECTED_IF_EMPTY);
     }
 
-    @Test
+    @Test(timeout = 1000)
     public void add() throws Exception {
         common.clear();
         common.add(ADD_DATA);
         assertTrue(common.vault[ADD_DATA_LENGTH - 1].equals(ADD_DATA));
     }
 
-    @Test(expected = Exception.class)
+    @Test(expected = Exception.class, timeout = 1000)
     public void addIfNoSpace() throws Exception {
         common.add(ADD_DATA);
     }
