@@ -1,4 +1,4 @@
-import ManagingLogic.*;
+import managinglogic.*;
 
 public class InventoryManager {
     public static void main(String[] args) {

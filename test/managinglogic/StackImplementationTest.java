@@ -1,4 +1,4 @@
-package ManagingLogic;
+package managinglogic;
 
 import org.junit.*;
 

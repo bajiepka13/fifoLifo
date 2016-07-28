@@ -1,8 +1,7 @@
-package ManagingLogic;
+package managinglogic;
 
 import java.util.Arrays;
 import java.util.Iterator;
-import java.util.NoSuchElementException;
 
 public abstract class ManagingClass implements Iterable {
     private static final int DEFAULT_QUEUE_SIZE = 5;
