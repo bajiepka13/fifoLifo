@@ -123,15 +123,15 @@ public class ManagingClassTest {
     }
 
     @Test(timeout = 1000)
-    public void add() throws Exception {
+    public void addWithoutCapacityChange() throws Exception {
         common.clear();
-        common.add(ADD_DATA);
+        common.addWithoutCapacityChange(ADD_DATA);
         assertTrue(common.vault[ADD_DATA_LENGTH - 1].equals(ADD_DATA));
     }
 
     @Test(expected = Exception.class, timeout = 1000)
-    public void addIfNoSpace() throws Exception {
-        common.add(ADD_DATA);
+    public void addWithoutCapacityChangeNoSpace() throws Exception {
+        common.addWithoutCapacityChange(ADD_DATA);
     }
 
     @AfterClass

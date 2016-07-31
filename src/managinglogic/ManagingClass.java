@@ -27,7 +27,7 @@ public abstract class ManagingClass implements Iterable {
      *
      * @param o - Object
      */
-    public void add(Object o) {
+    public void addWithoutCapacityChange(Object o) {
         if (fillIn <= this.size - 1) {
             vault[fillIn++] = o;
             version++;
